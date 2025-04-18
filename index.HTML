@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>BeniBioTourisme – Accueil</title>
+  <style>
+    /* Reset & Font */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; color:#333; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top:0; width:100%; padding:20px 5%;
+      display:flex; justify-content:space-between; align-items:center;
+      transition: background 0.3s, padding 0.3s;
+      background: rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    nav.scrolled { background:#fff; padding:10px 5%; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    nav .logo { font-size:1.8rem; font-weight:700; color:#fff; }
+    nav.scrolled .logo { color:#2e8b57; }
+    nav a {
+      margin-left:20px; text-decoration:none; font-weight:500; color:#fff;
+      transition: color 0.3s;
+    }
+    nav.scrolled a { color:#555; }
+    nav a:hover { color:#2e8b57; }
+
+    /* Hero Slider */
+    .hero { position:relative; height:100vh; overflow:hidden; }
+    .slides {
+      display:flex; width:300%; height:100%;
+      animation: slide 18s infinite;
+    }
+    .slides img {
+      width:100%; object-fit:cover;
+    }
+    @keyframes slide {
+      0%,33% { transform:translateX(0%); }
+      34%,66% { transform:translateX(-100%); }
+      67%,100% { transform:translateX(-200%); }
+    }
+    .hero .overlay {
+      position:absolute; inset:0; background:rgba(0,0,0,0.4);
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; padding:0 20px;
+    }
+    .hero h1 {
+      color:#fff; font-size:3.5rem; margin-bottom:20px; text-transform:uppercase;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .hero p {
+      color:#eee; font-size:1.2rem; margin-bottom:30px;
+      animation: fadeInUp 1s ease-out 0.5s forwards; opacity:0;
+    }
+    .hero .cta {
+      display:flex; gap:20px; animation: fadeInUp 1s ease-out 1s forwards; opacity:0;
+    }
+    .cta a {
+      padding:15px 30px; border-radius:30px; font-weight:600; text-decoration:none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .cta .primary { background:#2e8b57; color:#fff; }
+    .cta .primary:hover { background:#246f45; }
+    .cta .outline {
+      background:transparent; border:2px solid #fff; color:#fff;
+    }
+    .cta .outline:hover { background:#fff; color:#2e8b57; }
+
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    /* Sections */
+    section { padding:80px 5%; }
+    .title { text-align:center; font-size:2.5rem; color:#2e8b57; margin-bottom:40px; }
+
+    /* Services */
+    .services .grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;
+    }
+    .card {
+      background:#fff; border-radius:12px; overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:transform 0.3s;
+    }
+    .card:hover { transform:translateY(-5px); }
+    .card img { width:100%; height:200px; object-fit:cover; }
+    .card-content { padding:20px; }
+    .card-content h3 { margin-bottom:15px; color:#2e8b57; }
+    .card-content p { font-size:0.95rem; color:#555; }
+
+    /* Partenaires */
+    .partners .logos {
+      display:flex; justify-content:center; flex-wrap:wrap; gap:40px;
+    }
+    .logos img {
+      filter:grayscale(100%); opacity:0.6; transition:filter 0.3s, opacity 0.3s;
+      width:120px; height:auto;
+    }
+    .logos img:hover { filter:none; opacity:1; }
+
+    /* Footer */
+    footer {
+      background:#2e8b57; color:#fff; text-align:center; padding:20px 5%;
+    }
+
+    /* Scroll to top */
+    #toTop {
+      position:fixed; bottom:30px; right:30px; background:#2e8b57; color:#fff;
+      padding:10px 15px; border-radius:50%; cursor:pointer; display:none;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="logo">BeniBioTourisme</div>
+    <div>
+      <a href="index.html">Accueil</a>
+      <a href="discover.html">Découvrir</a>
+      <a href="services.html">Services</a>
+      <a href="profile.html">Profil</a>
+      <a href="login.html">Connexion</a>
+    </div>
+  </nav>
+
+  <!-- Hero avec slider -->
+  <section class="hero">
+    <div class="slides">
+      <img src="images/Logo BeniBioTourisme.png" alt="Hero 3">
+      <img src="images/Logo BeniBioFormation.png" alt="Hero 2">
+      <img src="images/Logo BeniBioServices.png" alt="Hero 3">
+    </div>
+    <div class="overlay">
+      <h1>Vivez le Bénin Authentique</h1>
+      <p>Formations, excursions et événements pour tous les passionnés de voyage.</p>
+      <div class="cta">
+        <a href="register.html" class="primary">Rejoignez-nous</a>
+        <a href="planifier.html" class="outline">Planifier votre visite</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="title">Nos Services</div>
+    <div class="services grid">
+      <div class="card">
+        <img src="images/Logo BeniBioFormation.png" alt="Formation"/>
+        <div class="card-content">
+          <h3>Formations</h3>
+          <p>Devenez guide touristique certifié avec nos programmes spécialisés.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Logo BeniBioTourisme.png" alt="Tourisme"/>
+        <div class="card-content">
+          <h3>Tourisme</h3>
+          <p>Partez à la découverte des plus beaux sites béninois accompagnés d’experts.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Logo BeniBioServices.png" alt="Événements"/>
+        <div class="card-content">
+          <h3>Événements</h3>
+          <p>Vivez des événements culturels uniques, concerts et festivals locaux.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partenaires -->
+  <section id="partners">
+    <div class="title">Nos Partenaires</div>
+    <div class="partners logos">
+      <img src="images/Logo Ministère des Sports.png" alt="Ministère des Sports">
+      <img src="images/Logo Fond d'Aide et Sports.png" alt="Fonds d'Aide et Sports">
+      <img src="images/Logo Ministère Tourisme.png" alt="Ministère du Tourisme">
+      <img src="images/Logo FIRCyP.png" alt="FIRCyP">
+      <img src="images/Logo Pecuvo PNG.png" alt="Pecuvo">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 BeniBioTourisme — Tous droits réservés
+  </footer>
+
+  <!-- Scroll to top -->
+  <div id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+  <script>
+    // Navbar background change on scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      document.getElementById('toTop').style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+
+</body>
+</html>
